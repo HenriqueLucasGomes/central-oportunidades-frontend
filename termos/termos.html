@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../principal/portal_estagio.css">
+		<meta charset="utf-8">
+        <script language=javascript type="text/javascript">
+    
+        </script>
+        
+        <style>
+            table{                
+                width: 300px;
+                font: 17px Calibri;
+            }
+            table, th, td {
+                border: solid 1px #DDD;
+                border-collapse: collapse;
+                padding: 2px 3px;
+                text-align: center;
+            }
+            
+        </style>
+		<link rel="icon" type="imagem/png" href="../bootstrap/img/logo.png"/>
+		<title>Portal de estágio</title>
+	</head>
+
+	<body>
+		<nav class="bar_nav navbar navbar-expand-lg">
+                
+            <div class="logos">
+                <a href="portal_estagio.html">
+                    <img class="img_siz_logo" src="http://www.coltec.ufmg.br/coltec-ufmg/wp-content/uploads/2018/05/cropped-logo-0.png" alt="Logo" id="logo">
+
+                    <img class="img_siz_coltec" src="http://www.coltec.ufmg.br/coltec-ufmg/wp-content/uploads/2018/06/escrito.png" alt="Logo" id="logo_1">
+
+                    <img class="img_siz_ufmg" src="http://www.coltec.ufmg.br/coltec-ufmg/wp-content/uploads/2018/07/ufmg_coltec.png" alt="Logo" id="logo_2">
+                </a>
+            </div>
+            
+            <form class="search_nav" class="form-inline my-2 my-lg-0">
+                <input class="text_area_search" type="search" placeholder="Encontre um estágio..." aria-label="Search">
+                <button class="botton" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                    <img width="20px" src="../bootstrap/img/baseline_search_white_24dp.png">
+                </button>
+            </form>
+            <a href="#"><img id="picture" src="../bootstrap/img/wag.png"></a>
+
+        </nav>
+
+		<div class="central">
+			<!--<div id="tabela">
+                <table>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Cargo</th>
+                    </tr>
+                    <tr>
+                        <td>Macoratti</td>
+                        <td>55</td>
+                        <td>Programador</td>
+                    </tr>
+                    <tr>
+                        <td>Jefferson</td>
+                        <td>26</td>
+                        <td>Engenheiro</td>
+                    </tr>
+                    <tr>
+                        <td>Janice</td>
+                        <td>24</td>
+                        <td>Web Designer</td>
+                    </tr>
+                </table>
+            </div>
+            -->
+            <form action="termos.php" method="post">
+                <div>
+                    <label>Nome: </label>
+                    <input id="nome" type="text" name="nome">
+                </div>
+                <div>
+                    <label>Idade: </label>
+                    <input id="idade" type="text" name="idade">
+                </div>
+                <div>
+                    <label>Escola: </label>
+                    <input id="escola" type="text" name="escola">
+                </div>
+                <div>
+                    <label>CNPJ: </label>
+                    <input id="cnpj" type="text" name="cnpj">
+                </div>
+                <div>
+                    <label>Valor da bolsa: </label>
+                    <input id="bolsa" type="text" name="bolsa">
+                </div>
+                
+            </form>
+            <p>
+                <input type="button" value="Criar PDF" id="btnImprimir" onclick="CriaPDF()"/>
+            </p>
+            
+            
+		</div>
+        
+        <script type="text/javascript" src="termos.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        
+	</body>
+</html>
