@@ -1,12 +1,11 @@
-
+<!DOCTYPE html>
 
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="../css/portal_estagio.css">
-		<meta charset="utf-8">
-        <script language=javascript type="text/javascript"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.2/pdf.js"></script> -->
+        <link rel="stylesheet" type="text/css" href="../css/termos.css">
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
         
         <style>
@@ -75,7 +74,7 @@
                 </table>
             </div>
             -->
-            <form action="termos.php" method="post">
+            <!-- <form action="termos.php" method="post">
                 <div>
                     <label>Nome: </label>
                     <input id="nome" type="text" name="nome">
@@ -99,15 +98,407 @@
                 
             </form>
             <p>
-                <input type="button" value="Criar PDF" id="btnImprimir"/>
-            </p>
+                <input type="button" value="Criar PDF" id="btnImprimir" onclick="CriaPDF()"/>
+            </p> -->
             
             
 		</div>
         
-        <script type="module" src="./controllers/gerador.js"></script>
-        <script type="module" src="./controllers/dados.js"></script>
+        <script type="text/javascript" src="../js/termos.js"></script>
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         
+	</body>
+</html>
+
+		<meta charset="utf-8">
+        
+        <script type="text/javascript" src="../js/termos.js">
+            $("#remunera").hide();
+            
+        </script>
+        
+        <script src="../jquery/jquery-3.2.1.min.js"></script>
+        
+		<link rel="icon" type="imagem/png" href="../bootstrap/img/logo.png"/>
+		<title>Portal de estágio</title>
+	</head>
+
+	<body>
+		<nav class="bar_nav navbar navbar-expand-lg">
+                
+            <div class="logos">
+                <a href="portal_estagio.html">
+                    <img class="img_siz_logo" src="http://www.coltec.ufmg.br/coltec-ufmg/wp-content/uploads/2018/05/cropped-logo-0.png" alt="Logo" id="logo">
+
+                    <img class="img_siz_coltec" src="http://www.coltec.ufmg.br/coltec-ufmg/wp-content/uploads/2018/06/escrito.png" alt="Logo" id="logo_1">
+
+                    <img class="img_siz_ufmg" src="http://www.coltec.ufmg.br/coltec-ufmg/wp-content/uploads/2018/07/ufmg_coltec.png" alt="Logo" id="logo_2">
+                </a>
+            </div>
+            
+            <form class="search_nav" class="form-inline my-2 my-lg-0">
+                <input class="text_area_search" type="search" placeholder="Encontre um estágio..." aria-label="Search">
+                <button class="botton" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                    <img width="20px" src="../bootstrap/img/baseline_search_white_24dp.png">
+                </button>
+            </form>
+            <a href="#"><img id="picture" src="../bootstrap/img/wag.png"></a>
+
+        </nav>
+
+		
+        <div class="login-wrap">
+            <div class="login-html">
+                <input id="tab-1" type="radio" name="tab" class="monitoria" checked><label for="tab-1" class="tab">DENTRO DA UFMG</label>
+                <input id="tab-2" type="radio" name="tab" class="estagio"><label for="tab-2" class="tab">FORA DA UFMG</label>
+                <div class="login-form">
+                    <div class="monitoria-htm">
+                        <h2><br>INFORMAÇÕES DA UNIDADE</h2><br>
+                        <div class="group" id="unidade">
+                            <label for="unidade" class="label">Unidade</label>
+                            <input id="unidade1" type="text" class="input">
+                        </div>
+                        <div class="group" id="cnpj">
+                            <label for="cnpj" class="label">CNPJ</label>
+                            <input id="cnpj1" type="text" class="input">
+                        </div>
+                        <div class="group" id="rua">
+                            <label for="rua" class="label">Rua</label>
+                            <input id="rua1" type="text" class="input">
+                        </div>
+                        <div class="group" id="numero">
+                            <label for="numero" class="label">Número</label>
+                            <input id="numero1" type="text" class="input">
+                        </div>
+                        <div class="group" id="cep">
+                            <label for="cep" class="label">CEP</label>
+                            <input id="cep1" type="text" class="input">
+                        </div>
+                        <div class="group" id="bairro">
+                            <label for="bairro" class="label">Bairro</label>
+                            <input id="bairro1" type="text" class="input">
+                        </div>
+                        <div class="group" id="municipio">
+                            <label for="municipio" class="label">Município</label>
+                            <input id="municipio1" type="text" class="input">
+                        </div>
+                        <div class="group" id="estado">
+                            <label for="estado" class="label">Estado</label>
+                            <input id="estado1" type="text" class="input">
+                        </div>
+                        <div class="group" id="supervisor">
+                            <label for="supervisor" class="label">Supervisor</label>
+                            <input id="supervisor1" type="text" class="input">
+                        </div>
+                        <br><br><h2>INFORMAÇÕES DO ALUNO</h2><br>
+                        <div class="group" id="nome">
+                            <label for="nome" class="label">Nome</label>
+                            <input id="nome1" type="text" class="input">
+                        </div>
+                        <div class="group" id="identidade">
+                            <label for="identidade" class="label">Identidade</label>
+                            <input id="identidade1" type="text" class="input">
+                        </div>
+                        <div class="group" id="cpf">
+                            <label for="cpf" class="label">CPF</label>
+                            <input id="cpf1" type="text" class="input">
+                        </div>
+                        <div class="group" id="rua_e">
+                            <label for="rua_e" class="label">Rua</label>
+                            <input id="rua_e1" type="text" class="input">
+                        </div>
+                        <div class="group" id="numero_e">
+                            <label for="numero_e" class="label">Número</label>
+                            <input id="numero_e1" type="text" class="input">
+                        </div>
+                        <div class="group" id="cep_e">
+                            <label for="cep_e" class="label">CEP</label>
+                            <input id="cep_e1" type="text" class="input">
+                        </div>
+                        <div class="group" id="bairro_e">
+                            <label for="bairro_e" class="label">Bairro</label>
+                            <input id="bairro_e1" type="text" class="input">
+                        </div>
+                        <div class="group" id="municipio_e">
+                            <label for="municipio_e" class="label">Município</label>
+                            <input id="municipio_e1" type="text" class="input">
+                        </div>
+                        <div class="group" id="estado_e">
+                            <label for="estado_e" class="label">Estado</label>
+                            <input id="estado_e1" type="text" class="input">
+                        </div>
+                        <div class="group" id="tel_e">
+                            <label for="tel_e" class="label">Telefone</label>
+                            <input id="tel_e1" type="text" class="input">
+                        </div>
+                        <div class="group" id="ano_e">
+                            <label for="ano_e" class="label">Ano</label>
+                            <input id="ano_e1" type="text" class="input">
+                        </div>
+                        <div class="group" id="curso_e">
+                            <label for="curso_e" class="label">Curso</label>
+                            <input id="curso_e1" type="text" class="input">
+                        </div>
+                        <div class="group" id="matricula_e">
+                            <label for="matricula_e" class="label">Matrícula</label>
+                            <input id="matricula_e1" type="text" class="input">
+                        </div>
+                        <br><br><h2>INFORMAÇÕES DO ESTÁGIO</h2><br>                        
+                        <div class="group" id="remunera" >
+                            <label for="remunera" class="label">Salário</label>
+                            <input id="remumera1" type="text" class="input">
+                            <div class="group">
+                                
+                            </div>
+                        </div>
+                        <div class="group" id="salario_ext">
+                            <label for="salario_ext" class="label">Salário por extenso</label>
+                            <input id="salario_ext1" type="text" class="input">
+                        </div>
+                        <div class="group" id="valor_aux">
+                            <label for="valor_aux" class="label">Valor do auxílio</label>
+                            <input id="valor_aux1" type="text" class="input">
+                        </div>
+                        <div class="group" id="duracao">
+                            <label for="duracao" class="label">Duração</label>
+                            <input id="duracao1" type="text" class="input">
+                        </div>
+                        <div class="group" id="duracao_ext">
+                            <label for="duracao_ext" class="label">Duração por extenso</label>
+                            <input id="duracao_ext1" type="text" class="input">
+                        </div>
+                        <div class="group" id="data_ini">
+                            <label for="data_ini" class="label">Data de início</label>
+                            <input id="data_ini1" type="text" class="input">
+                        </div>
+                        <div class="group" id="data_ter">
+                            <label for="data_ter" class="label">Data de término</label>
+                            <input id="data_ter1" type="text" class="input">
+                        </div>
+                        <div class="group" id="horas_sem">
+                            <label for="horas_sem" class="label">Horas semanais</label>
+                            <input id="horas_sem1" type="text" class="input">
+                        </div>
+                        <div class="group" id="horas_sem_ext">
+                            <label for="horas_sem_ext" class="label">Horas semanais por extenso</label>
+                            <input id="horas_sem_ext1" type="text" class="input">
+                        </div>
+                        <div class="group" id="horas_dia">
+                            <label for="horas_dia" class="label">Horas diárias</label>
+                            <input id="horas_dia1" type="text" class="input">
+                        </div>
+                        <div class="group" id="horas_dia_ext">
+                            <label for="horas_dia_ext" class="label">Horas diárias por extenso</label>
+                            <input id="horas_dia_ext1" type="text" class="input">
+                        </div>                        
+                        <div class="group" id="supervisor">
+                            <label for="supervisor" class="label">Supervisor</label>
+                            <input id="supervisor1" type="text" class="input">
+                        </div>                        
+                        <div class="group" id="coordenador">
+                            <label for="coordenador" class="label">Coordenador</label>
+                            <input id="coordenador1" type="text" class="input">
+                        </div>
+                        <div class="group" id="enviar">
+                            <input id="button_orange1" type="submit" class="button" value="Enviar">
+                        </div>
+                    </div>
+                    <div class="estagio-htm">
+                       <h2><br>INFORMAÇÕES DA UNIDADE</h2><br>
+                        <div class="group" id="unidade">
+                            <label for="unidade" class="label">Unidade</label>
+                            <input id="unidade2" type="text" class="input">
+                        </div>
+                        <div class="group" id="cnpj">
+                            <label for="cnpj" class="label">CNPJ</label>
+                            <input id="cnpj2" type="text" class="input">
+                        </div>
+                        <div class="group" id="rua">
+                            <label for="rua" class="label">Rua</label>
+                            <input id="rua2" type="text" class="input">
+                        </div>
+                        <div class="group" id="numero">
+                            <label for="numero" class="label">Número</label>
+                            <input id="numero2" type="text" class="input">
+                        </div>
+                        <div class="group" id="cep">
+                            <label for="cep" class="label">CEP</label>
+                            <input id="cep2" type="text" class="input">
+                        </div>
+                        <div class="group" id="bairro">
+                            <label for="bairro" class="label">Bairro</label>
+                            <input id="bairro2" type="text" class="input">
+                        </div>
+                        <div class="group" id="municipio">
+                            <label for="municipio" class="label">Município</label>
+                            <input id="municipio2" type="text" class="input">
+                        </div>
+                        <div class="group" id="estado">
+                            <label for="estado" class="label">Estado</label>
+                            <input id="estado2" type="text" class="input">
+                        </div>
+                        <div class="group" id="supervisor">
+                            <label for="supervisor" class="label">Supervisor</label>
+                            <input id="supervisor2" type="text" class="input">
+                        </div>
+                        <br><br><h2>INFORMAÇÕES DO ALUNO</h2><br>
+                        <div class="group" id="nome">
+                            <label for="nome" class="label">Nome</label>
+                            <input id="nome2" type="text" class="input">
+                        </div>
+                        <div class="group" id="identidade">
+                            <label for="identidade" class="label">Identidade</label>
+                            <input id="identidade2" type="text" class="input">
+                        </div>
+                        <div class="group" id="cpf">
+                            <label for="cpf" class="label">CPF</label>
+                            <input id="cpf2" type="text" class="input">
+                        </div>
+                        <div class="group" id="rua_e">
+                            <label for="rua_e" class="label">Rua</label>
+                            <input id="rua_e2" type="text" class="input">
+                        </div>
+                        <div class="group" id="numero_e">
+                            <label for="numero_e" class="label">Número</label>
+                            <input id="numero_e2" type="text" class="input">
+                        </div>
+                        <div class="group" id="cep_e">
+                            <label for="cep_e" class="label">CEP</label>
+                            <input id="cep_e" type="text" class="input">
+                        </div>
+                        <div class="group" id="bairro_e">
+                            <label for="bairro_e" class="label">Bairro</label>
+                            <input id="bairro_e2" type="text" class="input">
+                        </div>
+                        <div class="group" id="municipio_e">
+                            <label for="municipio_e" class="label">Município</label>
+                            <input id="municipio_e2" type="text" class="input">
+                        </div>
+                        <div class="group" id="estado_e">
+                            <label for="estado_e" class="label">Estado</label>
+                            <input id="estado_e2" type="text" class="input">
+                        </div>
+                        <div class="group" id="tel_e">
+                            <label for="tel_e" class="label">Telefone</label>
+                            <input id="tel_e2" type="text" class="input">
+                        </div>
+                        <div class="group" id="ano_e">
+                            <label for="ano_e" class="label">Ano</label>
+                            <input id="ano_e2" type="text" class="input">
+                        </div>
+                        <div class="group" id="curso_e">
+                            <label for="curso_e" class="label">Curso</label>
+                            <input id="curso_e2" type="text" class="input">
+                        </div>
+                        <div class="group" id="matricula_e">
+                            <label for="matricula_e" class="label">Matrícula</label>
+                            <input id="matricula_e2" type="text" class="input">
+                        </div>
+                        <br><br><h2>INFORMAÇÕES DO ESTÁGIO</h2><br>                        
+                        <div class="group" id="remunera" >
+                            <label for="remunera" class="label">Salário</label>
+                            <input id="remumera2" type="text" class="input">
+                            <div class="group">
+                                
+                            </div>
+                        </div>
+                        <div class="group" id="salario_ext">
+                            <label for="salario_ext" class="label">Salário por extenso</label>
+                            <input id="salario_ext2" type="text" class="input">
+                        </div>
+                        <div class="group" id="valor_aux">
+                            <label for="valor_aux" class="label">Valor do auxílio</label>
+                            <input id="valor_aux2" type="text" class="input">
+                        </div>
+                        <div class="group" id="duracao">
+                            <label for="duracao" class="label">Duração</label>
+                            <input id="duracao2" type="text" class="input">
+                        </div>
+                        <div class="group" id="duracao_ext">
+                            <label for="duracao_ext" class="label">Duração por extenso</label>
+                            <input id="duracao_ext2" type="text" class="input">
+                        </div>
+                        <div class="group" id="data_ini">
+                            <label for="data_ini" class="label">Data de início</label>
+                            <input id="data_ini2" type="text" class="input">
+                        </div>
+                        <div class="group" id="data_ter">
+                            <label for="data_ter" class="label">Data de término</label>
+                            <input id="data_ter2" type="text" class="input">
+                        </div>
+                        <div class="group" id="horas_sem">
+                            <label for="horas_sem" class="label">Horas semanais</label>
+                            <input id="horas_sem2" type="text" class="input">
+                        </div>
+                        <div class="group" id="horas_sem_ext">
+                            <label for="horas_sem_ext" class="label">Horas semanais por extenso</label>
+                            <input id="horas_sem_ext2" type="text" class="input">
+                        </div>
+                        <div class="group" id="horas_dia">
+                            <label for="horas_dia" class="label">Horas diárias</label>
+                            <input id="horas_dia2" type="text" class="input">
+                        </div>
+                        <div class="group" id="horas_dia_ext">
+                            <label for="horas_dia_ext" class="label">Horas diárias por extenso</label>
+                            <input id="horas_dia_ext2" type="text" class="input">
+                        </div>                        
+                        <div class="group" id="supervisor">
+                            <label for="supervisor" class="label">Supervisor</label>
+                            <input id="supervisor2" type="text" class="input">
+                        </div>                        
+                        <div class="group" id="coordenador">
+                            <label for="coordenador" class="label">Coordenador</label>
+                            <input id="coordenador2" type="text" class="input">
+                        </div>
+                        <br><br><h2>INFORMAÇÕES DO REPRESENTANTE DA EMPRESA</h2><br>
+                        <div class="group" id="representante">
+                            <label for="representante" class="label">Representante</label>
+                            <input id="representante" type="text" class="input">
+                        </div>
+                        <div class="group" id="id_representante">
+                            <label for="id_representante" class="label">Identidade</label>
+                            <input id="id_representante" type="text" class="input">
+                        </div> 
+                        <div class="group" id="cpf_representante">
+                            <label for="cpf_representante" class="label">CPF</label>
+                            <input id="cpf_representante" type="text" class="input">
+                        </div> 
+                        <div class="group" id="rua_representante">
+                            <label for="rua_representante" class="label">Rua</label>
+                            <input id="rua_representante" type="text" class="input">
+                        </div> 
+                        <div class="group" id="num_representante">
+                            <label for="num_representante" class="label">Número</label>
+                            <input id="num_representante" type="text" class="input">
+                        </div> 
+                        <div class="group" id="cep_representante">
+                            <label for="cep_representante" class="label">CEP</label>
+                            <input id="cep_representante" type="text" class="input">
+                        </div> 
+                        <div class="group" id="bairro_representante">
+                            <label for="bairro_representante" class="label">Bairro</label>
+                            <input id="bairro_representante" type="text" class="input">
+                        </div> 
+                        <div class="group" id="municipio_representante">
+                            <label for="municipio_representante" class="label">Município</label>
+                            <input id="municipio_representante" type="text" class="input">
+                        </div>              
+                        <div class="group" id="estado_representante">
+                            <label for="estado_representante" class="label">Estado</label>
+                            <input id="estado_representante" type="text" class="input">
+                        </div>   
+                        <div class="group" id="enviar">
+                            <input id="button_orange2" type="submit" class="button" value="Enviar">
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+        
+        <div id="bottom">
+        
+        </div>
+        
+        <script type="module" src="../js/caminho.js"></script>
 	</body>
 </html>

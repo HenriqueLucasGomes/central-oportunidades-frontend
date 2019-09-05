@@ -1,0 +1,8 @@
+Mano, o bagulho é o seguinte: 
+Provavelmente vc vai estar com um erro de não encontra ou acessar o document, isso ocorre pq 
+o arquivo, q esta rodando a função q cria o pdf do protocolo, esta rodadno np back-end 
+ou seja no servidor e não no browser ai não tem como vc acessar o document. A solução é criar a pasta 
+build pq ai vc consegue lançar esses arquivos, q vão estar nela para o browser, porém eu não consegui
+entender como se faz isso, o back-end da rita tem isso, mas não sei como ela consegui.
+
+é isso meu caro fica com Deus e bom trabalho.
